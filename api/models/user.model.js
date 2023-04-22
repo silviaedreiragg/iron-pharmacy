@@ -3,20 +3,20 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema({
     name: {
-        Type: String,
-        Require: 'User name is required',
-        Minlength: [5, 'User name needs at least 5 characters']
+        type: String,
+        required: 'User name is required',
+        minlength: [5, 'User name needs at least 5 characters']
     },
     imageUrl: {
         type: String
     },
     admin: {
-        Type: Boolean,
+        type: Boolean,
         default: false
     },
     email: {
-        Type: String,
-        Require: 'User email is required'
+        type: String,
+        require: 'User email is required'
     },
     password: {
         

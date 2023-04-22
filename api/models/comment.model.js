@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const commentSchema = new Schema({
     text: {
         type: String,
-        require: 'comment is required'
+        required: 'comment is required'
     },
     product: {
         type: mongoose.Schema.Types.ObjectId,
@@ -30,6 +30,6 @@ const commentSchema = new Schema({
     }
 })
 
-const comment = mongoose.model('Comment', commentSchema)
+const Comment = mongoose.model('Comment', commentSchema)
 
 module.exports = Comment

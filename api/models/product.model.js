@@ -5,33 +5,30 @@ const Schema = mongoose.Schema
 const productSchema = new Schema({
     name: {
         type: String,
-        require: 'Product name is required'
+        required: 'Product name is required'
     },
     expiration_date: {
         type: Date,
-        require: 'Expiration date is required'
+        required: 'Expiration date is required'
 
     },
     type: {
         type: String,
-        require: 'Type is required'
+        required: 'Type is required'
     },
     description: {
         type: String,
-        require: 'Description iss required',
+        required: 'Description iss required',
         minlength: [20, 'Producto description needs at least 10 characters']
     },
     stock: {
         type: Number,
-        require: 'Stock is required'
+        required: 'Stock is required'
     },
-    brand: {
-        type: String,
-        validate: {
-            validator: isValidUrl,
-            message: 'Not a valid url'
-        }
-    },
+    brand: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Brand'
+    }],
     imageUrl: {
         type: String,
         validate: {
@@ -45,7 +42,7 @@ const productSchema = new Schema({
     toJSON: {
         vituals: true,
         transform: function (doc, ret) {
-            delete ret._v;
+            delete ret.__v;
             ret.id = ret._id;
             delete ret._id
             return ret
@@ -53,12 +50,12 @@ const productSchema = new Schema({
     }
 })
 
-productSchema.virtual('comments'), {
-    ref: 'comments',
+productSchema.virtual('comments', {
+    ref: 'Comments',
     localField: '_id',
-    foreignFIeld: 'product',
+    foreignField: 'product',
     justOne: false,
-}
+})
 
 const Product = mongoose.model('Product', productSchema)
 
