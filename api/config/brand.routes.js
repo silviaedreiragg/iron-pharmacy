@@ -1,11 +1,12 @@
 const express = require('express')
 const routerBrand = express.Router()
 const brands = require('../controllers/brand.controller')
+const brandMid = require('../middlewares/brand.mid')
 
-routerBrand.get('/brands', brands.list)
-routerBrand.get('/brands/:id', brands.detail)
 routerBrand.post('/brands', brands.create)
-routerBrand.patch('/brands/:id', brands.update)
-routerBrand.delete('/brands/:id', brands.delete)
+routerBrand.get('/brands', brands.list)
+routerBrand.patch('/brands/:id', brandMid.exists, brands.update)
+routerBrand.get('/brands/:id', brandMid.exists, brands.detail)
+routerBrand.delete('/brands/:id', brandMid.exists, brands.delete)
 
 module.exports = routerBrand

@@ -13,26 +13,18 @@ module.exports.list = (req, res, next) => {
   .catch(next)
 }
 
-module.exports.detail = (req, res, next) => {
-  User.findById(req.params.id)
-  .then((user) => {
-    if (!user) {
-      next(createError(404, 'User not found'))
-     } else {
-      res.json(user)
-     }
-  })
-  .catch(next)
+module.exports.update = (req, res, next) => {
+  Object.assign(req.user, req.body);
+  req.user.save()
+      .then((user) => res.json(user))
+      .catch(next)
 }
 
-module.exports.update = (req, res, next) => {
-  User.findByIdAndUpdate(req.params.id, req.body, {new: true, runValidators: true})
-  .then((user) => res.json(user))
-  .catch(next)
-}
+module.exports.detail = (req, res, next) => res.json(req.user)
+
 
 module.exports.delete = (req, res, next) => {
-  User.findByIdAndDelete(req.params.id)
-  .then((user) => res.status(204).json())
+  User.deleteOne({_id: req.user.id})
+  .then(() => res.status(204).send())
   .catch(next)
 }
