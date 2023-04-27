@@ -8,7 +8,7 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.list = (req, res, next) => {
-    Product.find()
+    Product.find() //filters
         .populate('comments')
         .then((products) => res.json(products))
         .catch(next)
@@ -19,7 +19,7 @@ module.exports.update = (req, res, next) => {
     Object.assign(req.product, req.body);
     req.product.save()
         .then((product) => res.json(product))
-        .catch(product)
+        .catch(next)
 }
 
 

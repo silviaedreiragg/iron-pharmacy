@@ -8,7 +8,7 @@ module.exports.signup = (req, res, next) => {
 }
 
 module.exports.list = (req, res, next) => {
-  User.find()
+  User.find() 
   .then((users) => res.json(users))
   .catch(next)
 }

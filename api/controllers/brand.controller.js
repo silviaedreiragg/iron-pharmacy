@@ -8,7 +8,7 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.list = (req, res, next) => {
-    Brand.find()
+    Brand.find() //filters
         .then((brands) => res.json(brands))
         .catch(next)
 }

@@ -8,19 +8,19 @@ const commentSchema = new Schema({
     },
     product: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'product',
+        ref: 'Product',
         required: true
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'User',
         required: true
     }
 },
 {
-    tipestamps: true,
+    timestamps: true,
     toJSON: {
-        vituals: true,
+        virtuals: true,
         transform: function (doc, ret) {
             delete ret._v;
             ret.id = ret._id;

@@ -19,7 +19,7 @@ const productSchema = new Schema({
     description: {
         type: String,
         required: 'Description iss required',
-        minlength: [20, 'Producto description needs at least 10 characters']
+        minlength: [20, 'Producto description needs at least 20 characters']
     },
     stock: {
         type: Number,
@@ -38,9 +38,9 @@ const productSchema = new Schema({
     }
 },
 {
-    tipestamps: true,
+    timestamps: true,
     toJSON: {
-        vituals: true,
+        virtuals: true,
         transform: function (doc, ret) {
             delete ret.__v;
             ret.id = ret._id;
@@ -51,7 +51,7 @@ const productSchema = new Schema({
 })
 
 productSchema.virtual('comments', {
-    ref: 'Comments',
+    ref: 'Comment',
     localField: '_id',
     foreignField: 'product',
     justOne: false,
