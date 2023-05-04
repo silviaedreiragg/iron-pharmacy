@@ -8,8 +8,8 @@ module.exports.create = (req, res, next) => {
 }
 
 module.exports.list = (req, res, next) => {
-    Product.find() //filters
-        .populate('comments')
+    
+    Product.find({}) //filters
         .then((products) => res.json(products))
         .catch(next)
 }
@@ -23,11 +23,13 @@ module.exports.update = (req, res, next) => {
 }
 
 
-module.exports.detail = (req, res, next) => res.json(req.product)
+module.exports.detail = (req, res, next) => {
+    console.info('product list1')
+res.json(req.product)} 
 
 
 module.exports.delete = (req, res, next) => {
-    Product.deleteOne({_id: req.product.id})
+    Product.deleteOne({ _id: req.product.id })
         .then(() => res.status(204).send())
         .catch(next)
 }

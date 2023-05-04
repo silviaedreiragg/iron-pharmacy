@@ -10,7 +10,6 @@ const productSchema = new Schema({
     expiration_date: {
         type: Date,
         required: 'Expiration date is required'
-
     },
     type: {
         type: String,
@@ -29,6 +28,10 @@ const productSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Brand'
     }],
+    brandName: {
+        type: String,
+        required: 'Type is required'
+    },
     imageUrl: {
         type: String,
         validate: {
@@ -56,6 +59,7 @@ productSchema.virtual('comments', {
     foreignField: 'product',
     justOne: false,
 })
+
 
 const Product = mongoose.model('Product', productSchema)
 

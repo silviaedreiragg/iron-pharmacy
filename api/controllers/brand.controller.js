@@ -9,7 +9,9 @@ module.exports.create = (req, res, next) => {
 
 module.exports.list = (req, res, next) => {
     Brand.find() //filters
-        .then((brands) => res.json(brands))
+        .then((brands) => { 
+            console.log(brands)
+            res.json(brands) })
         .catch(next)
 }
 

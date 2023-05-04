@@ -1,13 +1,114 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card {
+  margin: 40px;
+}
+
+.logo {
+  max-width: 200px;
+  max-height: 100px;
+  margin: auto;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  display: flex;
+}
+
+.img-logo {
+  padding: 20px;
+  display: flex;
+  min-width: 300px;
+  width: 300px;
+}
+
+.card-product {
+  display: flex;
+  max-height: 500px;
+  flex-direction: column;
+}
+
+.productCard__img {
+  width: 300px;
+}
+
+.productCard__container {
+  display: grid;
+  margin: 0 80px;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap:20px;
+
+}
+
+.productCard {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.productCard__link, .brandName {
+  text-decoration: none;
+  color: black;
+}
+
+.h1-products, .h1-productsDetail, .h1-brands, .h1-brandsDetail  {
+  margin-left: 30px;
+  padding-bottom: 30px;
+}
+
+.product-info, .brand__info {
+  margin: 50px 100px;
+
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.btn.btn-outline-success, .btn.btn-outline-info {
+  margin-left: 20px;
+  font-size: x-large;
+}
+
+.login-form, .register-form {
+  margin: 50px;
+}
+
+
+.productDetail__img, .brandDetail__img {
+float: left;
+ marginRight: 20px;
+ padding-right: 70px;
+ max-width: 500px;
+}
+
+.d-block {
+  width: 700px;
+  height: 400px;
+  display: flex;
+  margin: 20px auto;
 }

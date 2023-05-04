@@ -6,7 +6,7 @@ module.exports.create = (req, res, next) => {
   Comment.create({
     text: req.body.text,
     product: req.params.id,
-    author: "" //add
+    author: req.user.id
 
   })
   .then((comment) => res.json(comment))
