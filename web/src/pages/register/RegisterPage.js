@@ -9,7 +9,7 @@ function RegisterPage() {
   // }
   return (
     <main className="register-form">
-      <form className="row g-3 needs-validation" novalidate>
+      <form className="row g-3 needs-validation" >
         <div className="col-md-4">
           <label htmlFor="validationCustom01" className="form-label">Name and Lastname</label>
           <input type="text" className="form-control" id="validationCustom01" required></input>

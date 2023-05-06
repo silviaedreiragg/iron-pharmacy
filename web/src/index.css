@@ -95,8 +95,10 @@ code {
 }
 
 .login-form, .register-form {
-  margin: 50px;
+  margin: 0 auto;
+  width: 50%;
 }
+
 
 
 .productDetail__img, .brandDetail__img {
@@ -112,3 +114,12 @@ float: left;
   display: flex;
   margin: 20px auto;
 }
+
+.container {
+  padding: 40px 20px;
+}
+
+.container button {
+  max-width: fit-content;
+}
+

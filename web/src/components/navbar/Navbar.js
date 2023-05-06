@@ -18,7 +18,7 @@ function Navbar() {
       <div className="container-fluid">
         <button
           className="navbar-toggler"
-          onClick={handleClick}
+         onClick={handleClick}
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -63,11 +63,6 @@ function Navbar() {
                 </li>
                 <li>
                   <hr className="dropdown-divider"></hr>
-                </li>
-                <li>
-                  <Link className="dropdown-item" tk="/products">
-                    Sooner expiration date
-                  </Link>
                 </li>
               </ul>
             </li>

@@ -1,8 +1,6 @@
 const Brand = require("../models/brand.model")
 const createError = require('http-errors')
 
-
-
 module.exports.exists = (req, res, next) => {
   Brand.findById(req.params.id)
   .then((brand) => {

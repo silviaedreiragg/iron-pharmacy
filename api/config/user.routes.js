@@ -2,13 +2,15 @@ const express = require('express')
 const routerUser = express.Router()
 const users = require('../controllers/user.controller')
 const userMid = require('../middlewares/user.mid')
+const secure = require("../middlewares/secure.mid")
 
-routerUser.post('/users', users.signup)
+routerUser.post('/users', users.create)
 routerUser.get('/users', users.list)
-routerUser.get('/users/:id', userMid.exists, users.detail)
-// routerUser.get('/users/:id/confirm', users.confirm)
-routerUser.patch('/users/:id', userMid.exists, users.update)
-routerUser.delete('/users/:id', userMid.exists, users.delete)
+
+routerUser.post("/login", users.login)
+routerUser.get('/users/:id', secure.auth ,userMid.exists, users.detail)
+routerUser.patch('/users/:id', secure.auth, users.update)
+routerUser.delete('/users/:id', secure.auth, users.delete)
 
 
 module.exports = routerUser
